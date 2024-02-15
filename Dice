@@ -1,0 +1,7 @@
+import random
+#roll 2d6
+print ("Rolling...")
+Dice1=random.randrange(1,6)
+Dice2=random.randrange(1,6)
+print ("Dice: ", Dice1, Dice2)
+#terminate
