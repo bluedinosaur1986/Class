@@ -1,0 +1,44 @@
+#Calculator program
+#Broken up into functions
+
+#Declare and initialize
+
+def addIt(numA, numB):
+    ResultS=float(numA+numB)
+    return ResultS
+
+def subIt(numA, numB):
+    Results=float(numA-numB)
+    return Results
+
+def multIt(numA, numB):
+    Results=float(numA*numB)
+    return Results
+
+def divIt(numA, numB):
+    Results=float(numA/numB)
+    return Results
+
+SelectioN=""
+X=float(0)
+Y=float(0)
+Z=float(0)
+#initial input
+SelectioN=input("Select function type: add, sub, mult, div or X to quit: ")
+#Main loop
+while SelectioN != "X":
+    X=float(input("Input first number"))
+    Y=float(input("Input second number"))
+    if SelectioN == "add":
+        Z = addIt(X, Y)
+    elif SelectioN == "sub":
+        Z = subIt(X, Y)
+    elif SelectioN == "mult":
+        Z = multIt(X, Y)
+    elif SelectioN == "div":
+        Z = divIt(X, Y)
+    print("Results", Z)
+    SelectioN=input("Select function type: add, sub, mult, div or X to quit: ")
+
+
+#terminate
