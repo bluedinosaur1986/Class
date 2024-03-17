@@ -1,0 +1,48 @@
+#//Saddle point search program 
+#//Patrick Paul 3/16/24 
+#//Declare and initialize
+import random
+i=int(0)
+x=int(0)
+z=int(0)
+lowVal=int(0)
+highVal=int(0)
+saddleFlag=False
+saddleIndex=int(0)
+tableArray=[[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0]]
+#//Initialize array using RNG 
+while i<=5:
+    x=int(0)
+    while x<=5:
+        tableArray[i][x]=random.randint(1, 100)
+        x=x+1
+    i=i+1
+print(tableArray)
+i=int(0)
+x=int(0)
+z=int(0)
+lowVal=int(0)
+highVal=int(0)
+saddleFlag=False
+saddleIndex=int(0)
+#//Check table for saddle points 
+while i<=5:
+    x=int(0)
+    saddleIndex=0
+    lowVal=tableArray[i][0]
+    while x<=5:
+        if tableArray[i][x]<=lowVal:
+            lowVal=tableArray[i][x]
+            saddleIndex=x
+        x=x+1
+    z=int(0)
+    saddleFlag=True
+    highVal=tableArray[i][saddleIndex]
+    while z<=5:
+        if tableArray[z][saddleIndex]>highVal:
+            saddleFlag=False
+        z=z+1
+    if saddleFlag==True:
+        print("Saddle Point is located at index: ",i,saddleIndex," and has the value: ",tableArray[i][saddleIndex])
+    i=i+1
+#/Terminate
