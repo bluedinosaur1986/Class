@@ -9,8 +9,9 @@ def Main():
     if selection=="4":
         exit(1)
     while not distance.isnumeric():
-        distance=input("Input distance to convert: ")
+        distance=input("Input distance to convert (text is not accepted): ")
     distance=float(distance)
+    print("The distance you input is: ",distance)
     if selection=="1":
         Inches(distance)
     elif selection=="2":
@@ -20,6 +21,7 @@ def Main():
     else:
         print ("Invalid selection, please try again:")
         Main()
+    Main()
 def Inches(distance):
     print("The distance in centimeters is:",distance*2.54)
 def Feet(distance):
