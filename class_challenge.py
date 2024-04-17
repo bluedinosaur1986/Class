@@ -4,9 +4,9 @@ def Menu():
     print("2. Read all records")
     selection=input("Input your choice:")
     if selection=="1":
-        insertStuff
+        insertStuff()
     elif selection=="2":
-        readStuff
+        readStuff()
     
 
 def insertStuff():
@@ -15,7 +15,8 @@ def insertStuff():
     mySymbol=input("Input ticker symbol:")
     myQty=float(input("Enter the quantity:"))
     myPrice=float(input("Enter price:"))
-    data.execute("INSERT INTO stocks VALUES (myDate, myTX, mySymbol, myQty, myPrice)")
+    data.execute('''INSERT INTO stocks 
+                 (myDate, myTX, mySymbol, myQty, myPrice) VALUES(?,?,?,?,?)''',(myDate, myTX,mySymbol,myQty,myPrice))
     conn.commit()
 
 def readStuff():
@@ -26,7 +27,8 @@ def readStuff():
 import sqlite3
 conn=sqlite3.connect('example.db')
 data=conn.cursor()
-data.execute('''create table if not exists stocks (date text, trans text, symbol text, qty real, price real)''')
+data.execute('''create table if not exists stocks 
+             (myDate text, myTX text, mySymbol text, myQty real, myPrice real)''')
 conn.commit()
-Menu
+Menu()
 conn.close()
